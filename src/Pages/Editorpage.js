@@ -30,7 +30,6 @@ const Editorpage = () => {
   const handleErrors = (e) => {
     console.log("Socket Error", e);
     toast.error("Connection Failed", { theme: "dark" });
-    // reactNavigator('/')
   };
 
   const moveToHomePage = () => {
