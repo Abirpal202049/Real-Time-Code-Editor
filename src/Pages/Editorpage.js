@@ -12,7 +12,6 @@ const Editorpage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Server Part
   const socketRef = useRef(null);
 
   useEffect(() => {
