@@ -12,6 +12,7 @@ const Editorpage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Server Part
   const socketRef = useRef(null);
 
   useEffect(() => {
@@ -29,6 +30,7 @@ const Editorpage = () => {
   const handleErrors = (e) => {
     console.log("Socket Error", e);
     toast.error("Connection Failed", { theme: "dark" });
+    // reactNavigator('/')
   };
 
   const moveToHomePage = () => {
