@@ -19,8 +19,12 @@ const Editorpage = () => {
     const init = async () => {
       socketRef.current = await initSocket();
 
+      // handeling errors
+      // socketRef.current.on("connect_error", (err) => handleErrors(err));
+      // socketRef.current.on("connectfailed", (err) => handleErrors(err));
+
       socketRef.current.emit(ACTIONS.JOIN, {
-        roomId,
+        // roomId,
         username: location.state?.username,
       });
     };
