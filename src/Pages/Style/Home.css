@@ -1,0 +1,71 @@
+.homePage{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    line-height:1rem;
+    background-color:#000000d3;
+}
+.formWrapper{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:#1f1f1f;
+    border-radius:.9rem;
+    padding: 1.2rem;
+    box-shadow:3px 3px 15px 5px gray;
+}
+.display-2{
+    font-size: 2rem;
+}
+.hacker-style{
+    color: lime;
+    font-size:1.3rem;
+    text-shadow: 0px 0px 3px lime;
+}
+.invite-message{
+    font-size:1.1rem;
+    color: red;
+}
+.input-group{
+    display: flex;
+    flex-direction: column;
+    padding: 1.6rem;
+}
+.input{
+    border-radius:0.2rem;
+    border: none;
+    font-size:1rem;
+    margin: 0.5rem;
+    padding: 1rem;
+}
+.btn{
+    align-items: center;
+    margin: 1rem;
+    padding:0.5rem;
+    background-color: lightgreen;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color:#1f1f1f;
+    border-radius: 10rem;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.btn-join:hover{
+    font-size: 1.2rem;
+    background-color: lime;
+    box-shadow:0px 0px 7px lime ;
+}
+.createInfo{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.create-room{
+    font-size:1.2rem;
+    font-weight: 700;
+    color: coral;
+}
