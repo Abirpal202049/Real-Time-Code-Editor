@@ -26,12 +26,20 @@ const Home = () => {
     }
 
     //   If both fields are present hten redirect
-    navigate(`/editor/${roomid}`, { 
-        state : {
-            username,
-        },
+    navigate(`/editor/${roomid}`, {
+      state: {
+        username,
+      },
     });
   };
+
+  //   On pressing Enter your data will be submitted
+  const handelInputEnter = (e) => {
+    console.log(e.code);
+    if(e.code === 'Enter'){
+        joinRoom()
+    }
+  }
 
   return (
     <div className="homePage">
@@ -52,6 +60,7 @@ const Home = () => {
             onChange={(e) => setRoomId(e.target.value)}
             className="input roomno-input"
             placeholder="Enter Your Room Id"
+            onKeyUp={handelInputEnter}
           />
           <input
             type="text"
@@ -59,6 +68,7 @@ const Home = () => {
             onChange={(e) => setUserName(e.target.value)}
             className="input name-input"
             placeholder="Enter Your Name"
+            onKeyUp={handelInputEnter}
           />
           <button onClick={joinRoom} className="btn btn-join">
             Join
