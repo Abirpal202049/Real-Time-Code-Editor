@@ -2,7 +2,7 @@ import React from 'react'
 
 const Editorpage = () => {
   return (
-    <div>Editorpage</div>
+    <div>Editor Page </div>
   )
 }
 

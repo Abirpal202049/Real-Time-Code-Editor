@@ -1,8 +1,12 @@
 import React from "react";
 import "./Style/Home.css";
 import { v4 } from "uuid";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const [roomid, setRoomId] = React.useState("");
   const [username, setUserName] = React.useState("");
 
@@ -11,9 +15,23 @@ const Home = () => {
     const id = v4();
     console.log(id);
     setRoomId(id);
+    toast.success("Room Created Successfully", { theme: "dark" });
   };
 
-  console.log(roomid);
+  //   console.log(roomid);
+  const joinRoom = () => {
+    if (!roomid || !username) {
+      toast.error("All Fields Are Required", { theme: "dark" });
+      return;
+    }
+
+    //   If both fields are present hten redirect
+    navigate(`/editor/${roomid}`, { 
+        state : {
+            username,
+        },
+    });
+  };
 
   return (
     <div className="homePage">
@@ -42,7 +60,9 @@ const Home = () => {
             className="input name-input"
             placeholder="Enter Your Name"
           />
-          <button className="btn btn-join">Join</button>
+          <button onClick={joinRoom} className="btn btn-join">
+            Join
+          </button>
           <span className="createInfo">
             If you don't have room Id Create{" "}
             <a onClick={createNewRoom} className="create-room" href="">
