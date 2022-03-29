@@ -1,9 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Client from "../Components/Client";
 import Editor from "../Components/Editor";
-import './Style/Editorpage.css'
+import "./Style/Editorpage.css";
+import { initSocket } from "../socket";
+import ACTIONS from "../Actions";
+import { useLocation, useNavigate, Navigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const Editorpage = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Server Part
+  const socketRef = useRef(null);
+
+  useEffect(() => {
+    const init = async () => {
+      socketRef.current = await initSocket();
+
+      // handeling errors
+      // socketRef.current.on("connect_error", (err) => handleErrors(err));
+      // socketRef.current.on("connectfailed", (err) => handleErrors(err));
+
+      socketRef.current.emit(ACTIONS.JOIN, {
+        // roomId,
+        username: location.state?.username,
+      });
+    };
+    init();
+  }, []);
+
+  const handleErrors = (e) => {
+    console.log("Socket Error", e);
+    toast.error("Connection Failed", { theme: "dark" });
+    // reactNavigator('/')
+  };
+
+  const moveToHomePage = () => {
+    toast.success("Leaving the room");
+    console.log(location.state?.username);
+    console.log(location.state?.roomid);
+    navigate("/");
+  };
+
   const [client, setClient] = useState([
     { socketId: 1, username: "Abir Pal" },
     { socketId: 2, username: "Saikat Mukherjee" },
@@ -20,17 +60,28 @@ const Editorpage = () => {
           </div>
           <h3>Connected</h3>
           <div className="clientsList">
-          {
-              client.map(client => (<Client key={client.socketId} username={client.username}/>))
-          }
+            {client.map((client) => (
+              <Client key={client.socketId} username={client.username} />
+            ))}
           </div>
-          <button className="btn copy">Copy Room Id</button>
-          <button className="btn leave">Leave Button</button>
+          <CopyToClipboard text={location.state?.roomid} >
+            <button
+              className="btn copy"
+              onClick={() =>
+                toast.success("Room Id Copyed Successfully", { theme: "dark" })
+              }
+            >
+              Copy Room Id
+            </button>
+          </CopyToClipboard>
+          <button className="btn leave" onClick={moveToHomePage}>
+            Leave Button
+          </button>
         </div>
       </div>
 
       <div className="editorWrap">
-          <Editor />
+        <Editor />
       </div>
     </div>
   );

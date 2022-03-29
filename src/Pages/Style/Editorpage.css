@@ -1,34 +1,49 @@
-.mainWrap{
-    display: grid;
-    grid-template-columns: 350px 1fr;
-    background-color:#000000d3;
-    height:100vh;
+.mainWrap {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  background-color: #282a36;
+  height: 100vh;
 }
-.aside{
-    background-color: #161616;
-    padding: 10px;
-    color:#fff;
-    display: flex;
-    flex-direction: column;
+.aside {
+  background-color: #161616;
+  padding: 10px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
 }
-.asideInner{
-    flex: 1;
+.asideInner {
+  flex: 1;
 }
-.clientsList{
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: center;
+.clientsList {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
 }
-.client{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    /* flex-wrap: wrap; */
+.client {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
 }
-.leave{
-    background-color : rgb(224, 85, 85);
+.leave {
+  background-color: rgb(224, 85, 85);
+}
+.CodeMirror {
+  font-size: 23px;
+  line-height: 1.2em;
+  padding-top: 12px;
+  height: 100vh;
+}
+.leave:hover {
+  background-color: rgb(255, 0, 0);
+  box-shadow: 0px 0px 15px rgb(255, 0, 0);
+  color: white;
+}
+.copy:hover {
+  background-color: lime;
+  box-shadow: 0px 0px 15px lime;
 }

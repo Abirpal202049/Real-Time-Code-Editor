@@ -23,6 +23,12 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.CodeMirror{
+  font-size:23px;
+  line-height:1.2em;
+  padding-top : 12px;
+  height : 100vh;
+}
 
 .App-link {
   color: #61dafb;
